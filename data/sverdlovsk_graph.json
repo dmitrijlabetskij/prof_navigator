@@ -1,0 +1,399 @@
+{
+  "version": "1.0.0",
+  "region": "Свердловская область",
+  "updated_at": "2026-10-29T12:00:00Z",
+  "industries": [
+    {
+      "id": "ind_it",
+      "name": "Информационные технологии и искусственный интеллект",
+      "description": "Разработка ПО, кибербезопасность, машинное обучение и цифровая трансформация промышленности Урала.",
+      "priority_rank": 1
+    },
+    {
+      "id": "ind_metallurgy",
+      "name": "Металлургия, материаловедение и аддитивные технологии",
+      "description": "Высокотехнологичное производство сталей, титановых сплавов, белая металлургия и промышленный инжиниринг.",
+      "priority_rank": 1
+    },
+    {
+      "id": "ind_machinery",
+      "name": "Машиностроение, робототехника и приборостроение",
+      "description": "Роботизированные производственные линии, локомотивостроение, энергомашиностроение и аэрокосмические приборы.",
+      "priority_rank": 2
+    },
+    {
+      "id": "ind_biomed",
+      "name": "Биомедицинские технологии и фармацевтика",
+      "description": "Создание лекарственных препаратов, синтез биоматериалов, современная медицинская диагностика и биотехнологии.",
+      "priority_rank": 2
+    },
+    {
+      "id": "ind_energy_mining",
+      "name": "Горное дело, геология и ресурсосберегающая энергетика",
+      "description": "Цифровой рудник, комплексная переработка руд редких металлов, геоинформационные системы и энергоэффективность.",
+      "priority_rank": 3
+    }
+  ],
+  "professions": [
+    {
+      "id": "prof_backend_dev",
+      "title": "Инженер-программист промышленных и облачных сервисов",
+      "industry_id": "ind_it",
+      "short_description": "Создает высоконагруженные серверные системы, алгоритмы автоматизации и интеграционные шлюзы.",
+      "interest_tags": ["информатика", "математика", "логика", "программирование", "алгоритмы"],
+      "holland_codes": ["I", "R", "C"],
+      "klimov_types": ["знаковая система", "техника"],
+      "average_salary_rub": 160000,
+      "demand_level": "очень высокий"
+    },
+    {
+      "id": "prof_robotics_eng",
+      "title": "Инженер-робототехник и специалист по мехатронике",
+      "industry_id": "ind_machinery",
+      "short_description": "Проектирует и программирует промышленных манипуляторов, мобильных роботов и сенсорные комплексы.",
+      "interest_tags": ["робототехника", "физика", "конструирование", "электроника", "программирование"],
+      "holland_codes": ["R", "I"],
+      "klimov_types": ["техника", "знаковая система"],
+      "average_salary_rub": 140000,
+      "demand_level": "высокий"
+    },
+    {
+      "id": "prof_white_metallurgist",
+      "title": "Технолог белой металлургии и трубного производства",
+      "industry_id": "ind_metallurgy",
+      "short_description": "Управляет цифровыми электросталеплавильными комплексами и проектирует инновационные виды трубной продукции.",
+      "interest_tags": ["химия", "материаловедение", "физика", "автоматизация", "производство"],
+      "holland_codes": ["R", "E", "C"],
+      "klimov_types": ["техника", "природа"],
+      "average_salary_rub": 130000,
+      "demand_level": "высокий"
+    },
+    {
+      "id": "prof_titanium_engineer",
+      "title": "Инженер-технолог титановых и композитных сплавов",
+      "industry_id": "ind_metallurgy",
+      "short_description": "Разрабатывает сверхпрочные детали для авиации, медицины и космоса на основе титана.",
+      "interest_tags": ["физика", "химия", "авиация", "лабораторные исследования", "материалы"],
+      "holland_codes": ["I", "R"],
+      "klimov_types": ["техника", "природа"],
+      "average_salary_rub": 145000,
+      "demand_level": "высокий"
+    },
+    {
+      "id": "prof_biochemist",
+      "title": "Биофармацевт-исследователь",
+      "industry_id": "ind_biomed",
+      "short_description": "Синтезирует новые молекулярные субстанции, проводит биотехнологический контроль лекарственных препаратов.",
+      "interest_tags": ["биология", "химия", "медицина", "эксперименты", "биотехнологии"],
+      "holland_codes": ["I", "S"],
+      "klimov_types": ["природа", "исследование"],
+      "average_salary_rub": 125000,
+      "demand_level": "высокий"
+    },
+    {
+      "id": "prof_mining_gis",
+      "title": "Горный инженер по цифровым геоинформационным системам",
+      "industry_id": "ind_energy_mining",
+      "short_description": "Строит 3D-модели месторождений и планирует безопасную отработку полезных ископаемых с использованием БПЛА и ИИ.",
+      "interest_tags": ["география", "геология", "3d-моделирование", "информатика", "картография"],
+      "holland_codes": ["R", "I"],
+      "klimov_types": ["природа", "знаковая система"],
+      "average_salary_rub": 150000,
+      "demand_level": "высокий"
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org_kvantorium_ekb",
+      "name": "Детский технопарк «Кванториум. Екатеринбург» (Ельцин Центр / Дворец молодёжи)",
+      "type": "kvantorium",
+      "city": "Екатеринбург",
+      "address": "г. Екатеринбург, ул. Бориса Ельцина, 3 / ул. Красных Командиров, 11а",
+      "website": "https://dm-centre.ru/kvantorium/",
+      "contacts": "+7 (343) 286-97-28"
+    },
+    {
+      "id": "org_kvantorium_vpyshma",
+      "name": "Детский технопарк «Кванториум. Верхняя Пышма»",
+      "type": "kvantorium",
+      "city": "Верхняя Пышма",
+      "address": "г. Верхняя Пышма, Успенский проспект, 1Г",
+      "website": "https://dm-centre.ru/kvantorium-pyshma/",
+      "contacts": "+7 (34368) 7-70-10"
+    },
+    {
+      "id": "org_kvantorium_pervik",
+      "name": "Детский технопарк «Кванториум. Первоуральск» (ИКЦ)",
+      "type": "kvantorium",
+      "city": "Первоуральск",
+      "address": "г. Первоуральск, ул. Ленина, 18Б",
+      "website": "https://ikc66.ru/kvantorium/",
+      "contacts": "+7 (343) 288-76-54"
+    },
+    {
+      "id": "org_itcube_uralmash",
+      "name": "Центр цифрового образования «IT-куб. Уралмаш»",
+      "type": "it_cube",
+      "city": "Екатеринбург",
+      "address": "г. Екатеринбург, ул. Красных командиров, 11а",
+      "website": "https://itcube66.ru",
+      "contacts": "+7 (343) 330-80-00"
+    },
+    {
+      "id": "org_urfu",
+      "name": "Уральский федеральный университет имени первого Президента России Б.Н. Ельцина (УрФУ)",
+      "type": "university",
+      "city": "Екатеринбург",
+      "address": "г. Екатеринбург, ул. Мира, 19",
+      "website": "https://urfu.ru",
+      "contacts": "+7 (343) 375-44-44"
+    },
+    {
+      "id": "org_urtk",
+      "name": "Уральский радиотехнический колледж им. А.С. Попова",
+      "type": "college",
+      "city": "Екатеринбург",
+      "address": "г. Екатеринбург, ул. Крауля, 168",
+      "website": "https://urtt.ru",
+      "contacts": "+7 (343) 231-50-60"
+    },
+    {
+      "id": "org_pmk",
+      "name": "Первоуральский металлургический колледж (Программа «Будущее Белой металлургии»)",
+      "type": "college",
+      "city": "Первоуральск",
+      "address": "г. Первоуральск, ул. Торговая, 1",
+      "website": "https://pmk-online.ru",
+      "contacts": "+7 (3439) 66-79-88"
+    },
+    {
+      "id": "org_uggu",
+      "name": "Уральский государственный горный университет (УГГУ)",
+      "type": "university",
+      "city": "Екатеринбург",
+      "address": "г. Екатеринбург, ул. Куйбышева, 30",
+      "website": "https://ursmu.ru",
+      "contacts": "+7 (343) 257-25-47"
+    },
+    {
+      "id": "org_ugmu",
+      "name": "Уральский государственный медицинский университет (УГМУ)",
+      "type": "university",
+      "city": "Екатеринбург",
+      "address": "г. Екатеринбург, ул. Репина, 3",
+      "website": "https://usma.ru",
+      "contacts": "+7 (343) 214-86-52"
+    },
+    {
+      "id": "org_kontur",
+      "name": "ИТ-компания «СКБ Контур»",
+      "type": "enterprise",
+      "city": "Екатеринбург",
+      "address": "г. Екатеринбург, ул. Малопрудная, 5 (Контур-Парк)",
+      "website": "https://kontur.ru",
+      "contacts": "+7 (343) 278-69-60"
+    },
+    {
+      "id": "org_tmk_sinara",
+      "name": "ПАО «ТМК» / Группа «Синара» (НТЦ ТМК и Северский трубный завод)",
+      "type": "enterprise",
+      "city": "Екатеринбург",
+      "address": "г. Екатеринбург, ул. Розы Люксембург, 51",
+      "website": "https://tmk-group.ru",
+      "contacts": "+7 (343) 355-70-00"
+    },
+    {
+      "id": "org_ugmk",
+      "name": "Уральская горно-металлургическая компания (ОАО «УГМК-Холдинг»)",
+      "type": "enterprise",
+      "city": "Верхняя Пышма",
+      "address": "г. Верхняя Пышма, Успенский проспект, 1",
+      "website": "https://ugmk.com",
+      "contacts": "+7 (34368) 9-60-00"
+    },
+    {
+      "id": "org_vsmpo",
+      "name": "ПАО «Корпорация ВСМПО-АВИСМА»",
+      "type": "enterprise",
+      "city": "Верхняя Салда",
+      "address": "г. Верхняя Салда, ул. Парковая, 1",
+      "website": "https://vsmpo.ru",
+      "contacts": "+7 (34345) 6-23-01"
+    },
+    {
+      "id": "org_medsintez",
+      "name": "Завод «Медсинтез» (Фармацевтический кластер)",
+      "type": "enterprise",
+      "city": "Новоуральск",
+      "address": "г. Новоуральск, ул. Загородная, 2",
+      "website": "https://medsintez.ru",
+      "contacts": "+7 (34370) 2-50-60"
+    }
+  ],
+  "vocational_trials": [
+    {
+      "id": "trial_it_backend",
+      "profession_id": "prof_backend_dev",
+      "organization_id": "org_itcube_uralmash",
+      "title": "Профпроба «Разработка REST API для умного города на Python»",
+      "description": "2-часовая практическая проба: школьник создает микросервис для обработки данных сенсоров городского мониторинга Екатеринбурга.",
+      "format": "Очно в IT-куб (лаборатория)",
+      "duration_hours": 2,
+      "capacity_per_group": 15,
+      "available_slots": ["2026-11-14T15:00:00", "2026-11-21T15:00:00", "2026-11-28T15:00:00"],
+      "partner_verified": true,
+      "verification_date": "2026-10-25"
+    },
+    {
+      "id": "trial_kontur_shadowing",
+      "profession_id": "prof_backend_dev",
+      "organization_id": "org_kontur",
+      "title": "День тени и митап в Контур-Парке: «Один день в команде бэкенд-разработки»",
+      "description": "Экскурсия в офис разработки СКБ Контур, знакомство с код-ревью, участие в демонстрационном стендапе с тимлидом.",
+      "format": "Очный интенсив / Экскурсия",
+      "duration_hours": 4,
+      "capacity_per_group": 20,
+      "available_slots": ["2026-11-18T14:00:00", "2026-12-02T14:00:00"],
+      "partner_verified": true,
+      "verification_date": "2026-10-27"
+    },
+    {
+      "id": "trial_robotics_pyshma",
+      "profession_id": "prof_robotics_eng",
+      "organization_id": "org_kvantorium_vpyshma",
+      "title": "Практикум «Программирование манипулятора KUKA и промышленной ячейки»",
+      "description": "Школьники программируют траекторию движения промышленного робота-манипулятора в среде симуляции и переносят алгоритм на реальный стенд.",
+      "format": "Очный лабораторный практикум",
+      "duration_hours": 3,
+      "capacity_per_group": 12,
+      "available_slots": ["2026-11-15T16:00:00", "2026-11-22T16:00:00"],
+      "partner_verified": true,
+      "verification_date": "2026-10-26"
+    },
+    {
+      "id": "trial_metallurgy_pmk",
+      "profession_id": "prof_white_metallurgist",
+      "organization_id": "org_pmk",
+      "title": "VR-проба «Управление дуговой сталеплавильной печью в Белой металлургии»",
+      "description": "Интерактивная проба в образовательном центре ПМК с использованием VR-симулятора технологического процесса плавки трубной стали.",
+      "format": "VR-симулятор + мастерская",
+      "duration_hours": 2.5,
+      "capacity_per_group": 16,
+      "available_slots": ["2026-11-17T13:00:00", "2026-11-24T13:00:00"],
+      "partner_verified": true,
+      "verification_date": "2026-10-24"
+    },
+    {
+      "id": "trial_titanium_vsmpo",
+      "profession_id": "prof_titanium_engineer",
+      "organization_id": "org_vsmpo",
+      "title": "Инженерная проба «Дефектоскопия и свойства титана для авиационных турбин»",
+      "description": "Практическое занятие по ультразвуковому контролю образцов титановых поковок и исследованию микроструктуры металлов.",
+      "format": "Лабораторная проба с инженером ВСМПО",
+      "duration_hours": 3,
+      "capacity_per_group": 10,
+      "available_slots": ["2026-11-20T14:30:00"],
+      "partner_verified": true,
+      "verification_date": "2026-10-28"
+    },
+    {
+      "id": "trial_biomed_medsintez",
+      "profession_id": "prof_biochemist",
+      "organization_id": "org_kvantorium_ekb",
+      "title": "Биохимическая проба «Микробиологический экспресс-анализ и очистка биопрепаратов»",
+      "description": "Работа в биоквантуме с аналитическими весами, спектрофотометром и хроматографическими колонками при кураторстве исследователей УГМУ.",
+      "format": "Лабораторный практикум (Биоквантум)",
+      "duration_hours": 2,
+      "capacity_per_group": 12,
+      "available_slots": ["2026-11-19T16:00:00", "2026-11-26T16:00:00"],
+      "partner_verified": true,
+      "verification_date": "2026-10-25"
+    },
+    {
+      "id": "trial_mining_uggu",
+      "profession_id": "prof_mining_gis",
+      "organization_id": "org_uggu",
+      "title": "Геодезическая цифровая проба «Построение 3D-модели карьера с помощью данных лидара»",
+      "description": "Обработка облака точек с беспилотника и построение трехмерного профиля горной выработки в учебном ГИС-центре УГГУ.",
+      "format": "Компьютерный практикум в ГИС-центре",
+      "duration_hours": 2,
+      "capacity_per_group": 15,
+      "available_slots": ["2026-11-23T15:30:00"],
+      "partner_verified": true,
+      "verification_date": "2026-10-22"
+    }
+  ],
+  "educational_programs": [
+    {
+      "id": "edu_urfu_irit_prog",
+      "profession_id": "prof_backend_dev",
+      "organization_id": "org_urfu",
+      "title": "Программная инженерия (ИРИТ-РТФ УрФУ)",
+      "level": "Высшее образование (бакалавриат)",
+      "partner_companies": ["org_kontur", "org_tmk_sinara"],
+      "budget_places": 180,
+      "passing_score_last_year": 268
+    },
+    {
+      "id": "edu_urtk_isip",
+      "profession_id": "prof_backend_dev",
+      "organization_id": "org_urtk",
+      "title": "09.02.07 Информационные системы и программирование (УРТК им. Попова)",
+      "level": "Среднее профессиональное образование (СПО)",
+      "partner_companies": ["org_kontur"],
+      "budget_places": 100,
+      "passing_score_last_year": 4.7
+    },
+    {
+      "id": "edu_urfu_mechatronics",
+      "profession_id": "prof_robotics_eng",
+      "organization_id": "org_urfu",
+      "title": "Мехатроника и робототехника (ИНМТ УрФУ)",
+      "level": "Высшее образование (бакалавриат)",
+      "partner_companies": ["org_ugmk", "org_tmk_sinara"],
+      "budget_places": 75,
+      "passing_score_last_year": 242
+    },
+    {
+      "id": "edu_pmk_metallurgy",
+      "profession_id": "prof_white_metallurgist",
+      "organization_id": "org_pmk",
+      "title": "Металлургия черных металлов (Федеральная программа «Профессионалитет»)",
+      "level": "Среднее профессиональное образование (СПО)",
+      "partner_companies": ["org_tmk_sinara"],
+      "budget_places": 90,
+      "passing_score_last_year": 4.3
+    },
+    {
+      "id": "edu_urfu_materials",
+      "profession_id": "prof_titanium_engineer",
+      "organization_id": "org_urfu",
+      "title": "Материаловедение и технологии материалов (УрФУ)",
+      "level": "Высшее образование (бакалавриат/магистратура)",
+      "partner_companies": ["org_vsmpo"],
+      "budget_places": 50,
+      "passing_score_last_year": 235
+    },
+    {
+      "id": "edu_ugmu_pharmacy",
+      "profession_id": "prof_biochemist",
+      "organization_id": "org_ugmu",
+      "title": "Фармация и промышленная биотехнология (УГМУ)",
+      "level": "Высшее образование (специалитет)",
+      "partner_companies": ["org_medsintez"],
+      "budget_places": 60,
+      "passing_score_last_year": 255
+    },
+    {
+      "id": "edu_uggu_mine_gis",
+      "profession_id": "prof_mining_gis",
+      "organization_id": "org_uggu",
+      "title": "Горное дело: Маркшейдерское дело и геоинформационные технологии (УГГУ)",
+      "level": "Высшее образование (специалитет 5.5 лет)",
+      "partner_companies": ["org_ugmk"],
+      "budget_places": 70,
+      "passing_score_last_year": 220
+    }
+  ]
+}
+

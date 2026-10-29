@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Профессиональный навигатор | Свердловская область</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+  <!-- Верхняя панель навигации -->
+  <header class="navbar">
+    <div class="brand-row">
+      <div class="brand-title">
+        <span>🧭</span>
+        <span>ПрофНавигатор</span>
+      </div>
+      <span class="region-tag">Свердловская область</span>
+    </div>
+
+    <!-- Переключатель 3 ролей (Школьник / Профориентолог / Партнёр) -->
+    <div class="role-tabs">
+      <button class="role-tab active" onclick="switchRole('student')">📱 Школьник</button>
+      <button class="role-tab" onclick="switchRole('counselor')">🧑‍🏫 Наставник</button>
+      <button class="role-tab" onclick="switchRole('partner')">🏢 Партнёр</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ==================== РОЛЬ 1: ШКОЛЬНИК ==================== -->
+    <section id="role-student" class="role-section">
+      
+      <!-- Шаг 1: Форма профориентационной диагностики -->
+      <div id="student-diagnostic-card" class="card">
+        <div class="card-title">
+          <span>🎯 Экспресс-диагностика интересов</span>
+          <button class="btn btn-outline btn-sm" onclick="fillDemoStudent()">⚡ Заполнить демо (9 класс)</button>
+        </div>
+        <div class="card-subtitle">
+          Сервис сопоставит твои увлечения с инфраструктурой детских технопарков «Кванториум», центров «IT-куб» и предприятий Свердловской области.
+        </div>
+
+        <form id="diagnostic-form" onsubmit="handleDiagnosticSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Имя школьника</label>
+            <input type="text" id="diag-name" class="form-control" placeholder="Например, Александр" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="form-group">
+              <label class="form-label">Город в Свердловской обл.</label>
+              <select id="diag-city" class="form-control">
+                <option value="Екатеринбург">Екатеринбург</option>
+                <option value="Верхняя Пышма">Верхняя Пышма</option>
+                <option value="Первоуральск">Первоуральск</option>
+                <option value="Нижний Тагил">Нижний Тагил</option>
+                <option value="Каменск-Уральский">Каменск-Уральский</option>
+                <option value="Верхняя Салда">Верхняя Салда</option>
+                <option value="Новоуральск">Новоуральск</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Класс</label>
+              <select id="diag-grade" class="form-control">
+                <option value="8">8 класс</option>
+                <option value="9" selected>9 класс</option>
+                <option value="10">10 класс</option>
+                <option value="11">11 класс</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Выбери сферы интересов (от 2 до 5)</label>
+            <div id="interests-chips" class="chips-grid"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Тип деятельности по Климову</label>
+            <div id="klimov-chips" class="chips-grid"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+            🚀 Построить профессиональные гипотезы
+          </button>
+        </form>
+      </div>
+
+      <!-- Шаг 2: 3-5 Профессиональных гипотез (Критерий 1) -->
+      <div id="student-hypotheses-card" class="card" style="display: none;">
+        <div class="card-title">
+          <span>💡 Сформированные гипотезы (Критерий 1)</span>
+          <button class="btn btn-outline btn-sm" onclick="resetDiagnostic()">🔄 Пересдать</button>
+        </div>
+        <div class="card-subtitle">
+          ИИ сформировал 3–5 проверяемых гипотез с привязкой к предприятиям и ВУЗам региона. Выбери гипотезу, чтобы открыть персональный маршрут.
+        </div>
+
+        <div id="hypotheses-list" class="hypotheses-list"></div>
+      </div>
+
+      <!-- Шаг 3: Персональный маршрут (Критерий 2) -->
+      <div id="student-roadmap-card" class="card" style="display: none; border: 2px solid var(--primary);">
+        <div class="card-title">
+          <span id="roadmap-card-title">📍 Персональный маршрут</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button class="btn btn-outline btn-sm" onclick="scrollToHypotheses()">↑ К гипотезам</button>
+            <span id="roadmap-progress-badge" class="badge" style="background: var(--primary-light); color: var(--primary); font-weight: 700;">Прогресс: 0%</span>
+          </div>
+        </div>
+        <div class="card-subtitle" id="roadmap-card-subtitle">
+          Пошаговый трек проверки гипотезы через реальные площадки и пробы в Свердловской области.
+        </div>
+
+        <div id="roadmap-timeline" class="timeline"></div>
+      </div>
+
+    </section>
+
+    <!-- ==================== РОЛЬ 2: ПРОФОРИЕНТОЛОГ ==================== -->
+    <section id="role-counselor" class="role-section" style="display: none;">
+      <div class="card">
+        <div class="card-title">
+          <span>🧑‍🏫 Кабинет профориентолога (Критерий 4)</span>
+          <button class="btn btn-outline btn-sm" onclick="loadCounselorData()">🔄 Обновить список</button>
+        </div>
+        <div class="card-subtitle">
+          Контроль маршрутов подопечных школьников, проверка прохождения профпроб и возможность ручной корректировки шагов наставником.
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Ученик</th>
+                <th>Город / Класс</th>
+                <th>Гипотезы</th>
+                <th>Маршруты</th>
+                <th>Средний прогресс</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="counselor-students-table">
+              <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">Загрузка данных...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Детали выбранного школьника для профориентолога -->
+      <div id="counselor-student-details" class="card" style="display: none;">
+        <div class="card-title">
+          <span id="counselor-student-heading">Маршруты подопечного</span>
+          <button class="btn btn-primary btn-sm" onclick="openAddStepModal()">➕ Добавить персональный шаг</button>
+        </div>
+        <div id="counselor-student-content"></div>
+      </div>
+    </section>
+
+    <!-- ==================== РОЛЬ 3: ПАРТНЁР ==================== -->
+    <section id="role-partner" class="role-section" style="display: none;">
+      <div class="card">
+        <div class="card-title">
+          <span>🏢 Кабинет предприятия / партнера (Критерий 6)</span>
+          <button class="btn btn-outline btn-sm" onclick="loadPartnerData()">🔄 Обновить</button>
+        </div>
+        <div class="card-subtitle">
+          Предприятия (СКБ Контур, ТМК, УГМК, ВСМПО) и технопарки актуализируют даты профессиональных проб, экскурсий и квот мест.
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Профпроба / Мероприятие</th>
+                <th>Организация / Город</th>
+                <th>Формат</th>
+                <th>Слоты дат</th>
+                <th>Статус актуальности</th>
+                <th>Действие</th>
+              </tr>
+            </thead>
+            <tbody id="partner-trials-table">
+              <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">Загрузка списка программ...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Модальное окно обратной связи после профпробы (Критерий 3) -->
+  <div id="feedback-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="card-title">
+        <span>📝 Рефлексия после профессиональной пробы</span>
+        <button class="btn btn-outline btn-sm" style="width: auto;" onclick="closeFeedbackModal()">✕</button>
+      </div>
+      <div class="card-subtitle" id="feedback-trial-title">
+        Оцени свои впечатления, чтобы алгоритм скорректировал профессиональную гипотезу.
+      </div>
+
+      <form id="feedback-form" onsubmit="handleFeedbackSubmit(event)">
+        <input type="hidden" id="fb-step-id">
+        <input type="hidden" id="fb-trial-id">
+
+        <div class="form-group">
+          <label class="form-label">Насколько тебе было интересно решать задачи? (1-5)</label>
+          <div class="rating-stars" id="rating-stars">
+            <button type="button" class="star-btn" data-val="1">★ 1</button>
+            <button type="button" class="star-btn" data-val="2">★ 2</button>
+            <button type="button" class="star-btn" data-val="3">★ 3</button>
+            <button type="button" class="star-btn" data-val="4">★ 4</button>
+            <button type="button" class="star-btn selected" data-val="5">★ 5</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Уровень сложности заданий</label>
+          <select id="fb-difficulty" class="form-control">
+            <option value="легко">Легко, справился без подсказок</option>
+            <option value="нормально" selected>Нормально, потребовались небольшие усилия</option>
+            <option value="сложно">Сложно, было непонятно</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Что больше всего запомнилось / понравилось?</label>
+          <textarea id="fb-key-takeaway" class="form-control" rows="3" placeholder="Например: Понравилось программировать датчики на стенде..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Готов ли ты продолжать развитие в этой сфере?</label>
+          <select id="fb-readiness" class="form-control">
+            <option value="yes" selected>Да, очень хочу углубиться дальше! (Подтвердить гипотезу)</option>
+            <option value="doubt">Сомневаюсь, хочу попробовать другие направления</option>
+            <option value="no">Точно нет, это не моё (Опровергнуть гипотезу)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">✅ Отправить рефлексию наставнику</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Модальное окно добавления шага профориентологом (Критерий 4) -->
+  <div id="add-step-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="card-title">
+        <span>➕ Добавить шаг в маршрут школьника</span>
+        <button class="btn btn-outline btn-sm" style="width: auto;" onclick="closeAddStepModal()">✕</button>
+      </div>
+
+      <form id="add-step-form" onsubmit="handleAddStepSubmit(event)">
+        <input type="hidden" id="counselor-modal-roadmap-id">
+
+        <div class="form-group">
+          <label class="form-label">Название шага / мероприятия</label>
+          <input type="text" id="cs-step-title" class="form-control" placeholder="Например: Экскурсия в Центр робототехники УрФУ" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Описание задачи</label>
+          <textarea id="cs-step-desc" class="form-control" rows="2" placeholder="Что именно нужно сделать школьнику"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Организация в Свердловской области</label>
+          <input type="text" id="cs-step-org" class="form-control" value="УрФУ (ИРИТ-РТФ)">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Город</label>
+          <input type="text" id="cs-step-city" class="form-control" value="Екатеринбург">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Заметка / рекомендация наставника</label>
+          <input type="text" id="cs-step-note" class="form-control" placeholder="Например: Обрати внимание на лабораторию микроэлектроники">
+        </div>
+
+        <button type="submit" class="btn btn-primary">💾 Сохранить шаг в маршрут</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
+
